@@ -1,0 +1,11 @@
+{
+  "name": "elis-healthcheck",
+  "version": "1.0.0",
+  "description": "health checking script for elis deployments",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "cypress": "^12.17.1"
+  }
+}
