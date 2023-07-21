@@ -12,6 +12,8 @@ describe("basic test", () => {
     cy.visit(url + "/heards/new");
     cy.get("#topic").type("test topic");
     cy.get("#question-1").type("What is your favourite colour?");
+    cy.get("#add-question").click();
+    cy.get("#question-2").type("What is your favourite animal?");
     cy.get("#chatiness-2").click();
     cy.get("#collect-names-checkbox").check();
     cy.get("button[type=submit]").click();
@@ -35,5 +37,19 @@ describe("basic test", () => {
     );
     cy.get("#chat-input").type("Green");
     cy.get("#chat-send-btn").click();
+
+    cy.get("#chat-message-2", { timeout: 30000 }).should("exist");
+    cy.get("#chat-input").type("Green looks like a grass");
+    cy.get("#chat-send-btn").click();
+
+    cy.get("#chat-message-4", { timeout: 30000 }).should("exist");
+    cy.get("#chat-input").type("It's a cat");
+    cy.get("#chat-send-btn").click();
+
+    cy.get("#chat-message-6", { timeout: 30000 }).should("exist");
+    cy.get("#chat-input").type("I like that cats say meow");
+    cy.get("#chat-send-btn").click();
+
+    cy.get("#chat-message-8", { timeout: 30000 }).should("exist");
   });
 });
