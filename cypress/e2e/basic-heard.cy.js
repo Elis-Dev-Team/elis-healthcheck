@@ -5,14 +5,14 @@ console.log("RUN NUMBER: ", runNumber);
 
 describe("basic test", () => {
   it("creates heard", () => {
-    cy.visit(url + "/signup");
+    cy.visit("/signup");
     cy.get("#name").type("test user");
     cy.get("#email").type(`test-${runNumber}@cypress.io`);
     cy.get("#password").type("password");
     cy.get("form").submit();
     cy.url().should("contain", "/heards");
 
-    cy.visit(url + "/heards/new");
+    cy.visit("/heards/new");
     cy.get("#topic").type("test topic");
     cy.get("#question-1").type("What is your favourite colour?");
     cy.get("#add-question").click();
