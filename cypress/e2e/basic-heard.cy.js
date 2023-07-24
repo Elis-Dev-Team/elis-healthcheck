@@ -1,5 +1,8 @@
 const runNumber = Math.floor(Math.random() * 10000000000000);
-const url = "http://localhost:3000";
+const url = process.env.HEARD_URL || "http://localhost:3000";
+
+console.log("RUN NUMBER: ", runNumber);
+
 describe("basic test", () => {
   it("creates heard", () => {
     cy.visit(url + "/signup");
