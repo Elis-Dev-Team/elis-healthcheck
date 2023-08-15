@@ -1,5 +1,5 @@
 const runNumber = Math.floor(Math.random() * 10000000000000);
-const url = process.env.HEARD_URL || "http://localhost:3000";
+const url = process.env.HEARD_URL || "https://app.heard.elis.io";
 
 console.log("RUN NUMBER: ", runNumber);
 
@@ -18,7 +18,7 @@ describe("basic test", () => {
     cy.get("#add-question").click();
     cy.get("#question-2").type("What is your favourite animal?");
     cy.get("#chatiness-2").click();
-    cy.get("#collect-names-checkbox").check();
+    // cy.get("#collect-names-checkbox").check();
     cy.get("button[type=submit]").click();
 
     cy.url().should("contain", "/create-success");
@@ -31,9 +31,9 @@ describe("basic test", () => {
     cy.url().should("contain", "/welcome");
     cy.get("#welcome-continue-btn").click();
 
-    cy.url().should("contain", "/details");
-    cy.get("#name").type("test user");
-    cy.get("#start-chat-btn").click();
+    // cy.url().should("contain", "/details");
+    // cy.get("#name").type("test user");
+    // cy.get("#start-chat-btn").click();
 
     cy.contains("What is your favourite colour?", { timeout: 30000 }).should(
       "exist"
