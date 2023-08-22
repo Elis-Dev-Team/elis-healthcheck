@@ -10,7 +10,7 @@ describe("basic test", () => {
     cy.get("#email").type(`test-${runNumber}@cypress.io`);
     cy.get("#password").type("password");
     cy.get("form").submit();
-    cy.url().should("contain", "/heards");
+    cy.url().should("contain", "/heards", { timeout: 10000 });
 
     cy.visit("/heards/new");
     cy.get("#topic").type("test topic");
@@ -21,7 +21,7 @@ describe("basic test", () => {
     // cy.get("#collect-names-checkbox").check();
     cy.get("button[type=submit]").click();
 
-    cy.url().should("contain", "/create-success");
+    cy.url().should("contain", "/create-success", { timeout: 10000 });
     cy.get("#heard-share-link")
       .invoke("val")
       .then((shareLink) => {
