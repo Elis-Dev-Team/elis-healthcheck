@@ -1,6 +1,15 @@
 const runNumber = Math.floor(Math.random() * 10000000000000);
 const url = process.env.HEARD_URL || "https://app.heard.elis.io";
 
+Cypress.Commands.overwrite(
+  "type",
+  (originalFn, subject, text, options = {}) => {
+    options.delay = 500;
+
+    return originalFn(subject, text, options);
+  }
+);
+
 console.log("RUN NUMBER: ", runNumber);
 
 describe("basic test", () => {
