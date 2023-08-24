@@ -4,7 +4,7 @@ const url = process.env.HEARD_URL || "https://app.heard.elis.io";
 Cypress.Commands.overwrite(
   "type",
   (originalFn, subject, text, options = {}) => {
-    options.delay = 500;
+    options.delay = 100;
 
     return originalFn(subject, text, options);
   }
