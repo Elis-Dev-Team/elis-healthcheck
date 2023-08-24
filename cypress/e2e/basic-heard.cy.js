@@ -22,6 +22,7 @@ describe("basic test", () => {
     cy.url().should("contain", "/heards", { timeout: 10000 });
 
     cy.visit("/heards/new");
+    cy.wait(5000);
     cy.get("#topic").type("test topic");
     cy.get("#question-1").type("What is your favourite colour?");
     cy.get("#add-question").click();
