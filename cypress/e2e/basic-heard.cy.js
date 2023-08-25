@@ -87,5 +87,8 @@ describe("HEARD APP", () => {
 
     cy.contains("Responses").click();
     cy.contains("cypress-tester-collected-email@cypress").should("exist");
+
+    // wait 2 more seconds just so that the test suite recording page loaded up
+    cy.wait(2000);
   });
 });
